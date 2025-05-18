@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bio Data</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e8f4f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #34495e;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    select {
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-top: 5px;
+      transition: border-color 0.3s ease;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    }
+    .flex-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .flex-row div {
+      flex: 1;
+      min-width: 150px;
+    }
+    .section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border: 1px solid #e9ecef;
+    }
+    .submit-btn {
+      margin-top: 30px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 200px;
+      align-self: center;
+    }
+    .submit-btn:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+    .profile-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px auto;
+      border: 3px solid #3498db;
+      display: block;
+    }
+    .profile-title {
+      font-weight: bold;
+      color: #34495e;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>My Bio Data</h2>
+    <form>
+      <div class="profile-section">
+        <div class="profile-title">Profile Picture</div>
+        <img class="profile-photo" src="https://via.placeholder.com/150" alt="">
+        <input type="file" id="photo" name="photo" accept="image/*">
+      </div>
+
+      <label class="required">Full Name</label>
+      <input type="text" name="fullname" required placeholder="Enter your full name">
+
+      <label>Father's Name</label>
+      <input type="text" name="father" required placeholder="Enter your father's name">
+
+      <label>Mother's Name</label>
+      <input type="text" name="mother" required placeholder="Enter your mother's name">
+
+      <label>Date of Birth</label>
+      <input type="date" name="dob" required>
+
+      <label>Gender</label>
+      <div class="flex-row section">
+        <div><input type="radio" name="gender" value="male"> Male</div>
+        <div><input type="radio" name="gender" value="female"> Female</div>
+        <div><input type="radio" name="gender" value="other"> Other</div>
+      </div>
+
+      <label>Address</label>
+      <textarea name="address" rows="3" required placeholder="Enter your address"></textarea>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required placeholder="Enter your phone number">
+
+      <label>Email</label>
+      <input type="email" name="email" required placeholder="Enter your email address">
+
+      <label>LinkedIn</label>
+      <input type="text" name="linkedin" placeholder="Enter your LinkedIn profile URL">
+
+      <label>GitHub</label>
+      <input type="text" name="github" placeholder="Enter your GitHub profile URL">
+
+      <label>Education</label>
+      <textarea name="education" rows="3" placeholder="Enter your educational qualifications"></textarea>
+
+      <label>Skills</label>
+      <textarea name="skills" rows="3" placeholder="Enter your skills"></textarea>
+
+      <label>Languages Known</label>
+      <input type="text" name="languages" placeholder="Enter languages you know">
+
+      <label>Marital Status</label>
+      <div class="flex-row section">
+        <div><input type="radio" name="married" value="yes"> Married</div>
+        <div><input type="radio" name="married" value="no"> Unmarried</div>
+      </div>
+
+      <label>Hobbies</label>
+      <div class="flex-row section">
+        <div><input type="checkbox" name="hobby" value="reading"> Reading</div>
+        <div><input type="checkbox" name="hobby" value="writing"> Writing</div>
+        <div><input type="checkbox" name="hobby" value="traveling"> Traveling</div>
+        <div><input type="checkbox" name="hobby" value="gaming"> Gaming</div>
+        <div><input type="checkbox" name="hobby" value="cooking"> Cooking</div>
+        <div><input type="checkbox" name="hobby" value="music"> Music</div>
+        <div><input type="checkbox" name="hobby" value="sports"> Sports</div>
+        <div><input type="checkbox" name="hobby" value="drawing"> Drawing</div>
+        <div><input type="checkbox" name="hobby" value="photography"> Photography</div>
+        <div><input type="checkbox" name="hobby" value="blogging"> Blogging</div>
+      </div>
+
+      <label>Blood Group</label>
+      <select name="bloodgroup">
+        <option value="">Select Blood Group</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+
+      <label>Personal Website</label>
+      <input type="url" name="website" placeholder="https://example.com">
+
+      <input type="submit" value="Submit Bio Data" class="submit-btn">
+      <input type="reset" value="Reset Form" class="submit-btn" style="background-color: #95a5a6;">
+    </form>
+  </div>
+</body>
+</html>
