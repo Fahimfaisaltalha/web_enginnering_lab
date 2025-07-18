@@ -22,21 +22,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Real-time validation handlers
+    email.addEventListener('input', function() {
+        if (email.value.trim() === '') {
+            setError(email, 'Email address is required.');
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            setError(email, 'Please enter a valid email address.');
+        } else {
+            setSuccess(email);
+        }
+    });
+
+    emailCode.addEventListener('input', function() {
+        if (emailCode.value.trim() === '') {
+            setError(emailCode, 'Email verification code is required.');
+        } else {
+            setSuccess(emailCode);
+        }
+    });
+
+    password.addEventListener('input', function() {
+        if (password.value === '') {
+            setError(password, 'Password is required.');
+        } else if (password.value.length < 6 || password.value.length > 20) {
+            setError(password, 'Password must be 6-20 characters long.');
+        } else if (!/^(?=.*[a-zA-Z])(?=.*\d)|(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])|(?=.*\d)(?=.*[^a-zA-Z0-9])/.test(password.value)) {
+            setError(password, 'Password must contain at least 2 different character types (letters, numbers, symbols).');
+        } else {
+            setSuccess(password);
+        }
+        // Also validate confirm password in real-time
+        if (passwordConfirm.value !== '') {
+            passwordConfirm.dispatchEvent(new Event('input'));
+        }
+    });
+
+    passwordConfirm.addEventListener('input', function() {
+        if (passwordConfirm.value === '') {
+            setError(passwordConfirm, 'Please confirm your password.');
+        } else if (password.value !== passwordConfirm.value) {
+            setError(passwordConfirm, 'Passwords do not match.');
+        } else {
+            setSuccess(passwordConfirm);
+        }
+    });
+
+    phone.addEventListener('input', function() {
+        if (phone.value.trim() === '') {
+            setError(phone, 'Phone number is required.');
+        } else {
+            setSuccess(phone);
+        }
+    });
+
+    smsCode.addEventListener('input', function() {
+        if (smsCode.value.trim() === '') {
+            setError(smsCode, 'SMS verification code is required.');
+        } else {
+            setSuccess(smsCode);
+        }
+    });
+
     // Form Submission Handler
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (validateForm()) {
             alert('Registration Successful!');
-            // In a real application, you would submit the form data to the server here.
-            // form.submit(); 
+            // form.submit();
         }
     });
 
     const setError = (element, message) => {
         element.classList.add('error');
+        element.classList.remove('success');
         const errorDisplay = element.closest('.form-group, .input-with-button, .phone-group').nextElementSibling;
         errorDisplay.innerText = message;
-        // Specific handling for checkboxes
         if(element.type === 'checkbox') {
             document.getElementById(`${element.id}-error`).innerText = message;
         }
@@ -44,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const setSuccess = (element) => {
         element.classList.remove('error');
-         const errorDisplay = element.closest('.form-group, .input-with-button, .phone-group').nextElementSibling;
+        element.classList.add('success');
+        const errorDisplay = element.closest('.form-group, .input-with-button, .phone-group').nextElementSibling;
         errorDisplay.innerText = '';
-        // Specific handling for checkboxes
         if(element.type === 'checkbox') {
             document.getElementById(`${element.id}-error`).innerText = '';
         }
@@ -60,10 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const passwordConfirmValue = passwordConfirm.value;
         const phoneValue = phone.value.trim();
         const smsCodeValue = smsCode.value.trim();
-
-        // Clear previous errors
-        document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-        document.querySelectorAll('.error-message').forEach(el => el.innerText = '');
 
         // Validate Email
         if (emailValue === '') {

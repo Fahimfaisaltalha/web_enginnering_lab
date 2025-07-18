@@ -3,11 +3,27 @@
 <head>
     <title>Bio data form</title>
     <link rel="stylesheet" href="bio.css">
+    <style>
+        .valid {
+            border: 2px solid #28a745 !important;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="green" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7.629 15.71a1 1 0 0 1-1.415 0l-4.242-4.243a1 1 0 1 1 1.415-1.415l3.535 3.535 7.778-7.778a1 1 0 1 1 1.415 1.415l-8.486 8.486z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px 20px;
+        }
+        .invalid {
+            border: 2px solid #dc3545 !important;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="red" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M10 8.586l4.95-4.95a1 1 0 1 1 1.414 1.415L11.414 10l4.95 4.95a1 1 0 0 1-1.414 1.415L10 11.414l-4.95 4.95a1 1 0 0 1-1.415-1.415L8.586 10l-4.95-4.95A1 1 0 0 1 5.05 3.636L10 8.586z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Bio Data Form</h1>
-        <form>
+        <form id="bioForm" novalidate>
             <div class="form-group">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -95,5 +111,98 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <script>
+        // Helper functions for validation
+        function validateName(name) {
+            return /^[A-Za-z\s]{2,}$/.test(name);
+        }
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        function validatePhone(phone) {
+            return /^[0-9\-\+\s\(\)]{7,}$/.test(phone);
+        }
+        function validateURL(url) {
+            return /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-\._~:/?#[\]@!$&'()*+,;=]*)?$/.test(url);
+        }
+        function validateAddress(address) {
+            return address.trim().length > 5;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('bioForm');
+            const fields = [
+                {id: 'name', validate: validateName},
+                {id: 'email', validate: validateEmail},
+                {id: 'phone', validate: validatePhone},
+                {id: 'github', validate: validateURL},
+                {id: 'linkedin', validate: validateURL},
+                {id: 'address', validate: validateAddress}
+            ];
+
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                input.addEventListener('input', function() {
+                    if (field.validate(input.value)) {
+                        input.classList.add('valid');
+                        input.classList.remove('invalid');
+                    } else {
+                        input.classList.add('invalid');
+                        input.classList.remove('valid');
+                    }
+                });
+            });
+
+            // For select and date fields
+            ['dob', 'gender', 'blood-group'].forEach(id => {
+                const input = document.getElementById(id);
+                input.addEventListener('change', function() {
+                    if (input.value) {
+                        input.classList.add('valid');
+                        input.classList.remove('invalid');
+                    } else {
+                        input.classList.add('invalid');
+                        input.classList.remove('valid');
+                    }
+                });
+            });
+
+            // For textarea (address)
+            const address = document.getElementById('address');
+            address.addEventListener('input', function() {
+                if (validateAddress(address.value)) {
+                    address.classList.add('valid');
+                    address.classList.remove('invalid');
+                } else {
+                    address.classList.add('invalid');
+                    address.classList.remove('valid');
+                }
+            });
+
+            // Prevent form submission if invalid
+            form.addEventListener('submit', function(e) {
+                let valid = true;
+                fields.forEach(field => {
+                    const input = document.getElementById(field.id);
+                    if (!field.validate(input.value)) {
+                        input.classList.add('invalid');
+                        input.classList.remove('valid');
+                        valid = false;
+                    }
+                });
+                ['dob', 'gender', 'blood-group'].forEach(id => {
+                    const input = document.getElementById(id);
+                    if (!input.value) {
+                        input.classList.add('invalid');
+                        input.classList.remove('valid');
+                        valid = false;
+                    }
+                });
+                if (!valid) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

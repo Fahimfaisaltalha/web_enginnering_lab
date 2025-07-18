@@ -214,3 +214,22 @@ input:focus, select:focus {
 input.error, select.error {
     border-color: #ef4444;
 }
+
+/* Add these for green border on valid input */
+input.success, select.success {
+    border-color: #22c55e !important;
+}
+
+/* Optional: Add a checkmark icon for valid and a cross for invalid (visual feedback) */
+input.success, select.success {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="green" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7.629 15.71a1 1 0 0 1-1.415 0l-4.242-4.243a1 1 0 1 1 1.415-1.415l3.535 3.535 7.778-7.778a1 1 0 1 1 1.415 1.415l-8.486 8.486z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px 20px;
+}
+input.error, select.error {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="red" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M10 8.586l4.95-4.95a1 1 0 1 1 1.414 1.415L11.414 10l4.95 4.95a1 1 0 0 1-1.414 1.415L10 11.414l-4.95 4.95a1 1 0 0 1-1.415-1.415L8.586 10l-4.95-4.95A1 1 0 0 1 5.05 3.636L10 8.586z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px 20px;
+}
