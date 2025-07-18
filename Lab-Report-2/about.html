@@ -5,6 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Fahim Faisal Talha</title>
     <link rel="stylesheet" href="about.css">
+    <style>
+        /* Modern Glassmorphism & Gradient Styles */
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            color: #222;
+        }
+        .header {
+            background: rgba(30, 41, 59, 0.85);
+            box-shadow: 0 4px 24px rgba(30,41,59,0.12);
+            backdrop-filter: blur(8px);
+            border-bottom: 1.5px solid #e0eafc;
+        }
+        .logo-img {
+            border: 3px solid #a5b4fc;
+            box-shadow: 0 2px 12px #a5b4fc44;
+        }
+        .name {
+            color: #f1f5f9;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .nav-menu a {
+            color: #f1f5f9;
+            font-size: 15px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+        .nav-menu a:hover {
+            color: #a5b4fc;
+            border-bottom: 2px solid #a5b4fc;
+        }
+        .search-btn, .menu-btn {
+            background: linear-gradient(90deg, #a5b4fc 0%, #fbc2eb 100%);
+            color: #222;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 22px;
+            margin-left: 8px;
+            box-shadow: 0 2px 8px #a5b4fc33;
+            transition: background 0.2s, color 0.2s;
+        }
+        .search-btn:hover, .menu-btn:hover {
+            background: linear-gradient(90deg, #fbc2eb 0%, #a5b4fc 100%);
+            color: #fff;
+        }
+        .about-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(120deg, #a5b4fc 0%, #fbc2eb 100%);
+            color: #222;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #fbc2eb88 0%, transparent 70%);
+            z-index: 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .profile-img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px #a5b4fc55;
+            border: 4px solid #fff;
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: scale(1.04) rotate(-2deg);
+        }
+        .title-wrapper {
+            margin-bottom: 32px;
+        }
+        .greeting {
+            font-size: 1.1rem;
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6366f1 0%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+        .role-badge {
+            display: inline-block;
+            background: rgba(99,102,241,0.08);
+            border: 2px solid #6366f1;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            color: #6366f1;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+        .specialties {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .specialty-tag {
+            background: rgba(251,194,235,0.15);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #6366f1;
+            border: 1px solid #fbc2eb;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+        .specialty-tag:hover {
+            background: #a5b4fc;
+            color: #fff;
+        }
+        .about-details {
+            padding: 80px 0;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(2px);
+            color: #222;
+        }
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .intro {
+            font-size: 1.25rem;
+            color: #6366f1;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        .section-block {
+            background: rgba(245,245,255,0.85);
+            padding: 32px;
+            border-radius: 18px;
+            margin-bottom: 36px;
+            border: 1.5px solid #a5b4fc44;
+            box-shadow: 0 2px 16px #a5b4fc22;
+        }
+        .section-block h2 {
+            color: #6366f1;
+            margin-bottom: 18px;
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .section-block p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 18px;
+        }
+        .skills-list li {
+            background: #e0e7ff;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #3730a3;
+            font-weight: 500;
+            border: 1px solid #a5b4fc55;
+            transition: background 0.2s, color 0.2s;
+        }
+        .skills-list li:hover {
+            background: #6366f1;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .profile-img {
+                max-width: 220px;
+                margin: 0 auto;
+            }
+            .title {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-hero {
+                padding: 100px 0 40px;
+            }
+            .about-details {
+                padding: 40px 0;
+            }
+            .section-block {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -16,7 +231,6 @@
             </div>
             <nav class="header-nav">
                 <ul class="nav-menu">
-                    
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
                     <li><a href="portfolio.html">My Portfolio</a></li>
