@@ -1,0 +1,216 @@
+/* General Body & Font Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fcf9f3;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #5a5a5a;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Containers */
+.main-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border: 1px solid #eee;
+}
+
+/* Invitation Stamp */
+.invitation-stamp {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    border: 2px dashed #f59e0b;
+    color: #f59e0b;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transform: rotate(15deg);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+    background-color: rgba(253, 230, 138, 0.2);
+}
+
+/* Form Elements */
+form h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.required-star {
+    color: #ef4444;
+    margin-right: 4px;
+}
+
+.password-hint {
+    font-size: 12px;
+    color: #999;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input Fields & Wrappers */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    cursor: pointer;
+}
+
+/* Input groups with buttons */
+.input-with-button {
+    display: flex;
+    gap: 10px;
+}
+
+.input-with-button input {
+    flex-grow: 1;
+}
+
+.send-btn {
+    padding: 0 20px;
+    border: 1px solid #dcdcdc;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.send-btn:hover {
+    background-color: #eee;
+}
+
+/* Phone Number Input */
+.phone-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.phone-prefix {
+    padding: 12px;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    color: #555;
+}
+
+.phone-group input {
+    border-radius: 0 6px 6px 0;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    accent-color: #3b82f6;
+}
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Submit Button */
+.register-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+.register-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Validation Error Styles */
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    min-height: 15px; /* Reserve space to prevent layout shift */
+}
+input.error, select.error {
+    border-color: #ef4444;
+}

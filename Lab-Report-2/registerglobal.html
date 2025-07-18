@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-border Seller Center</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>Welcome to the Cross-border Seller Center</h1>
+
+        <div class="form-container">
+            <div class="invitation-stamp">
+                Targeted <br> Invitation <br> to merchants
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <h2>Fill in registration information</h2>
+
+                <div class="form-group">
+                    <label for="country"><span class="required-star">*</span> Country/Region of Company Registration</label>
+                    <div class="input-wrapper">
+                         <select id="country" name="country">
+                             <option value="CN" selected>🇨🇳 Chinese mainland</option>
+                         </select>
+                    </div>
+                    <p class="error-message"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><span class="required-star">*</span> Mail</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="Please enter your email address">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                    </div>
+                     <p class="error-message"></p>
+                    <div class="input-with-button">
+                        <input type="text" id="email-code" name="email-code" placeholder="Please enter the email verification code">
+                        <button type="button" class="send-btn">Send</button>
+                    </div>
+                    <p class="error-message"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><span class="required-star">*</span> Set account password</label>
+                    <small class="password-hint">The password must be 6-20 digits, letters, special symbols, and at least 2 different character combinations.</small>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Please enter your password">
+                        <i class="fa-regular fa-eye-slash input-icon toggle-password"></i>
+                    </div>
+                     <p class="error-message"></p>
+                    <div class="input-wrapper">
+                        <input type="password" id="password-confirm" name="password-confirm" placeholder="Please enter your password again">
+                         <i class="fa-regular fa-eye-slash input-icon toggle-password"></i>
+                    </div>
+                     <p class="error-message"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone"><span class="required-star">*</span> Bind mobile phone number</label>
+                    <div class="phone-group">
+                        <span class="phone-prefix">86</span>
+                        <input type="tel" id="phone" name="phone" placeholder="Please enter your phone number">
+                    </div>
+                    <p class="error-message"></p>
+                    <div class="input-with-button">
+                        <input type="text" id="sms-code" name="sms-code" placeholder="Please enter the SMS verification code">
+                        <button type="button" class="send-btn">send</button>
+                    </div>
+                     <p class="error-message"></p>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="service-agreement" name="service-agreement">
+                    <label for="service-agreement">I have read and agreed to <a href="#">the Cross-border Merchant Unified Workstation Service Agreement</a></label>
+                </div>
+                 <p class="error-message" id="service-agreement-error"></p>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent-letter" name="consent-letter">
+                    <label for="consent-letter">I have read and agreed to the <a href="#">"Consent Letter for Cross-border Transfer of Personal Information by Chinese Sellers"</a></label>
+                </div>
+                 <p class="error-message" id="consent-letter-error"></p>
+
+                <button type="submit" class="register-btn">register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
