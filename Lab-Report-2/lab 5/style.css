@@ -5,25 +5,30 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     padding: 20px;
     color: #333;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
     background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
 }
 
 h1 {
     text-align: center;
     color: #1a73e8;
     margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .form-group {
@@ -51,7 +56,7 @@ textarea {
 
 button, .btn {
     background-color: #1a73e8;
-    color: white;
+    color: white !important;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -118,36 +123,223 @@ input[type="radio"], input[type="checkbox"] {
     border: 1px solid #f5c6cb;
 }
 
-/* Bio Data Display */
-.bio-data-container {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    line-height: 1.8;
-}
-.bio-data-container h2 {
-    color: #1a73e8;
-    border-bottom: 2px solid #f0f2f5;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-.bio-data-container p {
-    margin-bottom: 10px;
-}
-.bio-data-container strong {
-    color: #333;
-    margin-right: 8px;
-}
-.bio-actions {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
+/* Enhanced Header Navigation */
 .header-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.header-nav h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-nav .btn {
+    background-color: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    width: auto;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.header-nav .btn:hover {
+    background-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Enhanced Bio Data Display */
+.bio-data-container {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    border: 1px solid rgba(255,255,255,0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.bio-data-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.bio-data-container h2 {
+    color: #1a73e8;
+    border-bottom: 3px solid #e8f0fe;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.bio-data-container p {
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    background-color: rgba(248, 249, 250, 0.8);
+    border-radius: 8px;
+    border-left: 4px solid #1a73e8;
+    transition: all 0.3s ease;
+}
+
+.bio-data-container p:hover {
+    background-color: rgba(26, 115, 232, 0.05);
+    transform: translateX(5px);
+}
+
+.bio-data-container strong {
+    color: #1a73e8;
+    margin-right: 10px;
+    font-weight: 600;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.bio-data-container a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.bio-data-container a:hover {
+    color: #1557b0;
+    text-decoration: underline;
+}
+
+.bio-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bio-actions .btn {
+    width: auto;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: white !important;
+}
+
+.bio-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Enhanced Message Styling */
+.message {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+}
+
+.message.success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.message.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* Empty State Styling */
+.message:not(.success):not(.error) {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #1565c0;
+    border-left: 4px solid #2196f3;
+    padding: 30px;
+}
+
+.message:not(.success):not(.error) p {
+    font-size: 1.1rem;
     margin-bottom: 20px;
+}
+
+.message:not(.success):not(.error) .btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: white !important;
+}
+
+.message:not(.success):not(.error) .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .header-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .bio-actions {
+        flex-direction: column;
+    }
+    
+    .bio-data-container p {
+        padding: 10px 12px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .bio-data-container h2 {
+        font-size: 1.5rem;
+    }
 }
