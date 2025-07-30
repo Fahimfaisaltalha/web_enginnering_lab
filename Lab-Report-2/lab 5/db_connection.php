@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "my_app_db";
+$dbname = "lab_report4";
 
 // --- Create Connection using MySQLi ---
 $conn = new mysqli($servername, $username, $password, $dbname);
